@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto-Condensed', sans-serif;
+}
+
+/* REGISTER PAGE  */
+
+.register--main {
+    background-image: url('../src/assets/registerbg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form--container {
+    width: 400px;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid #808080;
+    border-radius: 1rem;
+    padding: 30px 30px;
+    gap: 1rem;
+}
+
+.logo {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #72bcd4;
+    font-weight: 700;
+}
+
+.title {
+    text-align: center;
+    font-size: 1rem;
+    color: #808080;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form input {
+    width: 80%;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #808080;
+}
+
+.form input::placeholder {
+    font-family: 'Roboto-Condensed';
+    color: #808080;
+    letter-spacing: 2px;
+}
+
+.file--input {
+    display: none;
+}
+
+.label--addavatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin: 1rem;
+}
+
+.label--addavatar span {
+    margin-left: 10px;
+    font-size: 0.8rem;
+}
+
+.button {
+    width: 80%;
+    padding: 10px;
+    color: #ffffff;
+    background-color: #72bcd4;
+    border: none;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #347085;
+    font-weight: 700;
+}
+
+.member--login {
+    text-align: center;
+    font-size: 1rem;
+    color: #808080;
+}
+
+/* HOME PAGE  */
+
+.home {
+    background-color: #72bcd4;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.home .container {
+    border: 1px solid white;
+    border-radius: 10px;
+    width: 80%;
+    height: 70%;
+    display: flex;
+    overflow: hidden;
+}
+
+/* SIDEBAR  */
+
+.sidebar {
+    flex: 1;
+    border-right: 1px solid #111;
+    background-color: #25316D;
+}
+
+/* NAVBAR  */
+
+.navbar {
+    display: flex;
+    align-items: center;
+    height: 4rem;
+    background-color: #0e1b5a;
+    color: #ffffff;
+    padding: 10px;
+    justify-content: space-between;
+}
+
+.navbar--logo {
+    font-weight: 700;
+}
+
+.navbar--user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.navbar--user>img {
+    background-color: #ffffff;
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.navbar--user>button {
+    padding: 5px;
+    border: none;
+    background-color: #72bcd4;
+    cursor: pointer;
+}
+
+.chat {
+    flex: 2;
+    background-color: #5F6F94;
+}
