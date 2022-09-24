@@ -166,7 +166,51 @@ body {
     border: none;
     background-color: #72bcd4;
     cursor: pointer;
+    font-weight: 700;
 }
+
+/* SEARCH BAR  */
+
+.search--form {
+    padding: 10px;
+}
+
+.search--form>input {
+    background-color: transparent;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    color: #ffffff;
+    outline: none;
+}
+
+.search--form>input::placeholder {
+    color: #808080;
+    letter-spacing: 1px;
+}
+
+.sidebar--user--info {
+    border-bottom: 1px solid #808080;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.user--info {
+    margin-left: 10px;
+    color: #72bcd4;
+    font-weight: 700;
+}
+
+.sidebar--user--info>img {
+    height: 34px;
+    width: 34px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+
+
 
 .chat {
     flex: 2;
