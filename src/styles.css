@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 
 * {
     margin: 0;
@@ -36,9 +37,11 @@ body {
 
 .logo {
     text-align: center;
-    font-size: 1.5rem;
-    color: #72bcd4;
+    font-size: 3rem;
+    color: #25316D;
     font-weight: 700;
+    font-family: 'Lobster', sans-serif;
+    letter-spacing: 3px;
 }
 
 .title {
@@ -59,6 +62,10 @@ body {
     margin: 10px 0;
     padding: 10px;
     border: 1px solid #808080;
+}
+
+.form>input:focus {
+    outline: none;
 }
 
 .form input::placeholder {
@@ -96,6 +103,11 @@ body {
 .button:hover {
     background-color: #347085;
     font-weight: 700;
+}
+
+.register--error {
+    margin: 10px 0;
+    color: red;
 }
 
 .member--login {
@@ -144,7 +156,8 @@ body {
 }
 
 .navbar--logo {
-    font-weight: 700;
+    font-family: 'Lobster', sans-serif;
+    letter-spacing: 2px;
 }
 
 .navbar--user {
@@ -263,7 +276,6 @@ body {
 
 .messages {
     display: flex;
-    align-items: center;
     margin: 20px 0;
 }
 
@@ -288,6 +300,9 @@ body {
 }
 
 .messageContent {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     max-width: 80%;
 }
 
@@ -295,12 +310,21 @@ body {
     background-color: #ffffff;
     padding: 10px 20px;
     border-radius: 0px 10px 10px 10px;
+    max-width: max-content;
+}
+
+.messageContent>img {
+    width: 50%;
 }
 
 .sender {
     flex-direction: row-reverse;
+    /* border-radius: 10px 0px 10px 10px; */
 }
 
+.sender .messageContent {
+    align-items: flex-end;
+}
 
 /* INPUT  */
 
