@@ -87,8 +87,9 @@ body {
 }
 
 .label--addavatar span {
-    margin-left: 10px;
+    margin-left: 5px;
     font-size: 0.8rem;
+    color: #808080;
 }
 
 .button {
@@ -98,6 +99,7 @@ body {
     background-color: #72bcd4;
     border: none;
     cursor: pointer;
+    text-transform: uppercase;
 }
 
 .button:hover {
@@ -116,7 +118,7 @@ body {
     color: #808080;
 }
 
-/* HOME PAGE  */
+/* HOME PAGE/LOGIN  */
 
 .home {
     background-color: #72bcd4;
@@ -158,6 +160,7 @@ body {
 .navbar--logo {
     font-family: 'Lobster', sans-serif;
     letter-spacing: 2px;
+    font-size: 2rem;
 }
 
 .navbar--user {

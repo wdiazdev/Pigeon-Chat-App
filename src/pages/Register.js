@@ -7,7 +7,7 @@ import { doc, setDoc } from 'firebase/firestore';
 import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
-    const [error, setError] = useState(false);
+    const [err, setErr] = useState(false);
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
@@ -22,37 +22,35 @@ const Register = () => {
 
             const storageRef = ref(storage, displayName);
 
-            const uploadTask = uploadBytesResumable(storageRef, file);
-
-            uploadTask.on(
-                (error) => {
-                    setError(true);
-                },
-                () => {
-                    getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
+            await uploadBytesResumable(storageRef, file).then(() => {
+                getDownloadURL(storageRef).then(async (downloadURL) => {
+                    try {
+                        //Update profile
                         await updateProfile(res.user, {
                             displayName,
                             photoURL: downloadURL,
                         });
-
-                        // REGISTER DATA 
-                        await setDoc(doc(db, 'users', res.user.uid), {
+                        //create user on firestore
+                        await setDoc(doc(db, "users", res.user.uid), {
+                            uid: res.user.uid,
                             displayName,
                             email,
                             photoURL: downloadURL,
-                            uid: res.user.uid,
                         });
 
-                        await setDoc(doc(db, 'userChats', res.user.uid, {}));
+                        //create empty user chats on firestore
+                        await setDoc(doc(db, "userChats", res.user.uid), {});
                         navigate("/");
-                    });
-                }
-            );
-        } catch (error) {
-            setError(true);
+                    } catch (err) {
+                        console.log(err);
+                        setErr(true);
+                    }
+                });
+            });
+        } catch (err) {
+            setErr(true);
         }
     };
-
     return (
         <div className='register--main'>
             <div className='form--container'>
@@ -74,7 +72,7 @@ const Register = () => {
                         <span>Choose an Avatar</span>
                     </label>
                     <button className='button'>Sign Up</button>
-                    {error && <span className='register--error'>Invalid email or password</span>}
+                    {err && <span className='register--error'>An error occurred</span>}
                 </form>
                 <p className='member--login'>Are you a member? Login</p>
             </div>
@@ -82,18 +80,4 @@ const Register = () => {
     )
 }
 
-export default Register
-
-
-
-
- // .then((userCredential) => {
-            //     const user = userCredential.user;
-
-            //     console.log(user)
-            // })
-
-            // .catch((error) => {
-            //     const errorCode = error.code;
-            //     const errorMessage = error.message;
-            // });
+export default Register;
