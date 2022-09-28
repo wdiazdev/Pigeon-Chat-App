@@ -3,8 +3,8 @@ import addavatar from '../assets/addavatar.png';
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { auth, db, storage } from '../Firebase';
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
-import { doc, setDoc } from 'firebase/firestore';
 import { useNavigate, Link } from 'react-router-dom';
+import { setDoc, doc } from 'firebase/firestore';
 
 const Register = () => {
     const [err, setErr] = useState(false);
@@ -30,7 +30,6 @@ const Register = () => {
                             displayName,
                             photoURL: downloadURL,
                         });
-
                         //create user on firestore
                         await setDoc(doc(db, "users", res.user.uid), {
                             uid: res.user.uid,
@@ -41,7 +40,7 @@ const Register = () => {
 
                         //create empty user chats on firestore
                         await setDoc(doc(db, "userChats", res.user.uid), {});
-                        navigate("/");
+                        navigate('/');
                     } catch (err) {
                         console.log(err);
                         setErr(true);

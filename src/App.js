@@ -10,9 +10,11 @@ function App() {
 
   const { currentUser } = useContext(AuthContext);
   const ProtectedRoute = ({ children }) => {
+    // If not user go to login page
     if (!currentUser) {
       return <Navigate to='/login' />
     }
+    // If there is a user return home page
     return children
   };
 
