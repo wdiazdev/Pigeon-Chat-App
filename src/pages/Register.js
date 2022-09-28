@@ -4,7 +4,7 @@ import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { auth, db, storage } from '../Firebase';
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { doc, setDoc } from 'firebase/firestore';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 const Register = () => {
     const [err, setErr] = useState(false);
@@ -30,6 +30,7 @@ const Register = () => {
                             displayName,
                             photoURL: downloadURL,
                         });
+
                         //create user on firestore
                         await setDoc(doc(db, "users", res.user.uid), {
                             uid: res.user.uid,
@@ -72,9 +73,14 @@ const Register = () => {
                         <span>Choose an Avatar</span>
                     </label>
                     <button className='button'>Sign Up</button>
-                    {err && <span className='register--error'>An error occurred</span>}
+                    {err && <span className='register--error'>
+                        An error occurred. Please try again
+                    </span>}
                 </form>
-                <p className='member--login'>Are you a member? Login</p>
+                <p className='member--login'>
+                    Are you a member?
+                    <Link className='link' to='/login'>Login</Link>
+                </p>
             </div>
         </div>
     )

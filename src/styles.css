@@ -118,6 +118,16 @@ body {
     color: #808080;
 }
 
+.link {
+    text-decoration: none;
+    margin-left: 5px;
+    color: #0e1b5a;
+}
+
+.link:hover {
+    font-weight: 700;
+}
+
 /* HOME PAGE/LOGIN  */
 
 .home {

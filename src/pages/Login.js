@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from '../Firebase';
 
@@ -14,7 +14,7 @@ const Login = () => {
 
         try {
             await signInWithEmailAndPassword(auth, email, password);
-            navigate("/")
+            navigate('/')
         } catch (err) {
             setErr(true);
         };
@@ -32,14 +32,15 @@ const Login = () => {
                     <input type="email" placeholder='Email' />
                     <input type="password" placeholder='Password' />
                     <button className='button'>Login</button>
-                    {err && <span>Something went wrong</span>}
+                    {err && <span className='register--error'>Something went wrong</span>}
                 </form>
 
-                <p className='member--login'>New member? Register</p>
+                <p className='member--login'>
+                    New member? <Link className='link' to='/register'>Register</Link>
+                </p>
             </div>
         </div>
     )
 };
-
 
 export default Login
