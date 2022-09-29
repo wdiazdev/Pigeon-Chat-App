@@ -1,38 +1,41 @@
-import React from 'react'
+import React, { useContext, useEffect, useState } from 'react';
+import { doc, onSnapshot } from 'firebase/firestore';
+import { db } from '../../Firebase'
+import { AuthContext } from '../../context/AuthContext';
 
 function Openchat() {
+    const [chats, setChats] = useState([])
+    const { currentUser } = useContext(AuthContext);
+
+    useEffect(() => {
+        const getChats = () => {
+            const unsub = onSnapshot(doc(db, 'userChats', currentUser.uid), (doc) => {
+                setChats(doc.data());
+            });
+
+            return () => {
+                unsub();
+            };
+        };
+
+        currentUser.uid && getChats();
+    }, [currentUser.uid]);
+
+    console.log(Object.entries(chats));
+
     return (
         <div className='open--chat'>
-            <div className="sidebar--user--info">
-                <img src='https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80' alt='User Info' />
-                <div className="user--info">
-                    <span>John Smith</span>
-                    <p className='last--message'>Hello Wil!</p>
+            {Object.entries(chats)?.map((chat) => (
+                <div className="sidebar--user--info" key={chat[0]}>
+                    <img src={chat[1].userInfo.photoURL} alt='User Info' />
+                    <div className="user--info">
+                        <span>{chat[1].userInfo.displayName}</span>
+                        <p className='last--message'>{chat[1].userInfo.lastMessage?.text}</p>
+                    </div>
                 </div>
-            </div>
-            <div className="sidebar--user--info">
-                <img src='https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80' alt='User Info' />
-                <div className="user--info">
-                    <span>John Smith</span>
-                    <p className='last--message'>Hello Wil!</p>
-                </div>
-            </div>
-            <div className="sidebar--user--info">
-                <img src='https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80' alt='User Info' />
-                <div className="user--info">
-                    <span>John Smith</span>
-                    <p className='last--message'>Hello Wil!</p>
-                </div>
-            </div>
-            <div className="sidebar--user--info">
-                <img src='https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80' alt='User Info' />
-                <div className="user--info">
-                    <span>John Smith</span>
-                    <p className='last--message'>Hello Wil!</p>
-                </div>
-            </div>
+            ))}
         </div>
-    )
-}
+    );
+};
 
 export default Openchat
