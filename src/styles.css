@@ -243,6 +243,14 @@ body {
     object-fit: cover;
 }
 
+.search--error {
+    color: #ffffff;
+    margin-left: 10px;
+    color: #808080;
+
+}
+
+
 /* OPEN CHAT  */
 
 .openchat--user--info {}
