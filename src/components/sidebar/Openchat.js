@@ -2,14 +2,17 @@ import React, { useContext, useEffect, useState } from 'react';
 import { doc, onSnapshot } from 'firebase/firestore';
 import { db } from '../../Firebase'
 import { AuthContext } from '../../context/AuthContext';
+import { ChatContext } from '../../context/ChatContext';
 
-function Openchat() {
-    const [chats, setChats] = useState([])
+function OpenChat() {
+    const [chats, setChats] = useState([]);
+    
     const { currentUser } = useContext(AuthContext);
+    const { dispatch } = useContext(ChatContext);
 
     useEffect(() => {
         const getChats = () => {
-            const unsub = onSnapshot(doc(db, 'userChats', currentUser.uid), (doc) => {
+            const unsub = onSnapshot(doc(db, "userChats", currentUser.uid), (doc) => {
                 setChats(doc.data());
             });
 
@@ -20,8 +23,6 @@ function Openchat() {
 
         currentUser.uid && getChats();
     }, [currentUser.uid]);
-
-    console.log(Object.entries(chats));
 
     return (
         <div className='open--chat'>
@@ -38,4 +39,5 @@ function Openchat() {
     );
 };
 
-export default Openchat
+
+export default OpenChat;

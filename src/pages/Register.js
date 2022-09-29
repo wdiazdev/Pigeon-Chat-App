@@ -20,7 +20,7 @@ const Register = () => {
         try {
             const res = await createUserWithEmailAndPassword(auth, email, password)
 
-            const storageRef = ref(storage, displayName);
+            const storageRef = ref(storage, `${displayName}`);
 
             await uploadBytesResumable(storageRef, file).then(() => {
                 getDownloadURL(storageRef).then(async (downloadURL) => {
@@ -40,7 +40,7 @@ const Register = () => {
 
                         //create empty user chats on firestore
                         await setDoc(doc(db, "userChats", res.user.uid), {});
-                        navigate('/');
+                        navigate("/");
                     } catch (err) {
                         console.log(err);
                         setErr(true);
