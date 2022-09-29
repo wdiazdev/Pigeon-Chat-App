@@ -6,7 +6,7 @@ import { ChatContext } from '../../context/ChatContext';
 
 function OpenChat() {
     const [chats, setChats] = useState([]);
-    
+
     const { currentUser } = useContext(AuthContext);
     const { dispatch } = useContext(ChatContext);
 
@@ -24,10 +24,14 @@ function OpenChat() {
         currentUser.uid && getChats();
     }, [currentUser.uid]);
 
+    const handleSelect = (u) => {
+        dispatch({ type: "CHANGE_USER", payload: u });
+    };
+
     return (
         <div className='open--chat'>
             {Object.entries(chats)?.map((chat) => (
-                <div className="sidebar--user--info" key={chat[0]}>
+                <div className="sidebar--user--info" key={chat[0]} onClick={handleSelect}>
                     <img src={chat[1].userInfo.photoURL} alt='User Info' />
                     <div className="user--info">
                         <span>{chat[1].userInfo.displayName}</span>
