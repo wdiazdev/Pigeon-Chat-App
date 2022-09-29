@@ -32,33 +32,34 @@ const Search = () => {
 
     const handleSelect = async () => {
         // Chats between two people
-        const chatIds = currentUser.uid > user.uid
-            ? currentUser.uid + user.uid
-            : user.uid + currentUser.uid;
+        const combinedId =
+            currentUser.uid > user.uid
+                ? currentUser.uid + user.uid
+                : user.uid + currentUser.uid;
         try {
-            const res = await getDoc(doc(db, 'chats', chatIds));
+            const res = await getDoc(doc(db, 'chats', combinedId));
 
             if (!res.exists()) {
-                // Create chat collection
-                await setDoc(doc(db, 'chats', chatIds), { messages: [] });
+                //create a chat in chats collection
+                await setDoc(doc(db, "chats", combinedId), { messages: [] });
 
-                // Create user chat 
-                await updateDoc(doc(db, 'userChats', currentUser.uid), {
-                    [chatIds + '.userInfo']: {
+                //create user chats
+                await updateDoc(doc(db, "userChats", currentUser.uid), {
+                    [combinedId + ".userInfo"]: {
                         uid: user.uid,
                         displayName: user.displayName,
-                        photoURL: user.photoURL
+                        photoURL: user.photoURL,
                     },
-                    [chatIds + '.date']: serverTimestamp()
+                    [combinedId + ".date"]: serverTimestamp(),
                 });
 
-                await updateDoc(doc(db, 'userChats', user.uid), {
-                    [chatIds + '.userInfo']: {
+                await updateDoc(doc(db, "userChats", user.uid), {
+                    [combinedId + ".userInfo"]: {
                         uid: currentUser.uid,
                         displayName: currentUser.displayName,
-                        photoURL: currentUser.photoURL
+                        photoURL: currentUser.photoURL,
                     },
-                    [chatIds + '.date']: serverTimestamp()
+                    [combinedId + ".date"]: serverTimestamp(),
                 });
             }
         } catch (err) { }
