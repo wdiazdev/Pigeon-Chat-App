@@ -30,7 +30,7 @@ function OpenChat() {
 
     return (
         <div className='open--chat'>
-            {Object.entries(chats)?.map((chat) => (
+            {chats && Object.entries(chats)?.map((chat) => (
                 <div className="sidebar--user--info" key={chat[0]} onClick={handleSelect}>
                     <img src={chat[1].userInfo.photoURL} alt='User Info' />
                     <div className="user--info">
