@@ -30,7 +30,7 @@ function OpenChat() {
 
     return (
         <div className='open--chat'>
-            {chats && Object.entries(chats)?.map((chat) => (
+            {chats && Object.entries(chats)?.sort((a, b) => b[1].date - a[1].date).map((chat) => (
                 <div
                     className="sidebar--user--info"
                     key={chat[0]}
@@ -39,7 +39,7 @@ function OpenChat() {
                     <img src={chat[1].userInfo.photoURL} alt='User Info' />
                     <div className="user--info">
                         <span>{chat[1].userInfo.displayName}</span>
-                        <p className='last--message'>{chat[1].userInfo.lastMessage?.text}</p>
+                        <p className='last--message'>{chat[1].lastMessage?.text}</p>
                     </div>
                 </div>
             ))}
