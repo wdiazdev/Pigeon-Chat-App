@@ -214,7 +214,7 @@ body {
 }
 
 .search--form>input::placeholder {
-    color: #808080;
+    color: #ffffff;
     letter-spacing: 1px;
 }
 
@@ -253,8 +253,6 @@ body {
 
 /* OPEN CHAT  */
 
-.openchat--user--info {}
-
 .last--message {
     color: #ffffff;
     font-weight: 300;
@@ -283,7 +281,8 @@ body {
 
 .chat--topbar>span {
     padding: 10px;
-    color: #808080;
+    color: #ffffff;
+    letter-spacing: 2px;
 }
 
 /* MAIN MESSAGES AREA  */
