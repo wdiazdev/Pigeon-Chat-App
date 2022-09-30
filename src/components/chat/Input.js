@@ -1,4 +1,11 @@
-import { arrayUnion, doc, Timestamp, updateDoc, serverTimestamp } from 'firebase/firestore';
+import {
+    arrayUnion,
+    doc,
+    Timestamp,
+    updateDoc,
+    serverTimestamp
+}
+    from 'firebase/firestore';
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../context/AuthContext';
 import { ChatContext } from '../../context/ChatContext';
@@ -10,7 +17,7 @@ import { uploadBytesResumable, ref, getDownloadURL } from 'firebase/storage';
 
 
 const Input = () => {
-    const [text, setText] = useState('');
+    const [text, setText] = useState("");
     const [img, setImg] = useState(null);
 
     const { currentUser } = useContext(AuthContext);

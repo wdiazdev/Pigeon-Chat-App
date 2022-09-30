@@ -9,15 +9,16 @@ const MessagesArea = () => {
     const { data } = useContext(ChatContext);
 
     useEffect(() => {
-        const unSub = onSnapshot(doc(db, 'chats', data.chatId), (doc) => {
-            doc.exists() && setMessages(doc.data().messages)
-        })
+        const unSub = onSnapshot(doc(db, "chats", data.chatId), (doc) => {
+            doc.exists() && setMessages(doc.data().messages);
+        });
 
         return () => {
-            unSub()
-        }
+            unSub();
+        };
     }, [data.chatId]);
 
+    console.log(messages)
     return (
 
         < div className='messages--area'>
