@@ -329,7 +329,7 @@ body {
 .messageContent>p {
     background-color: #ffffff;
     padding: 10px 20px;
-    border-radius: 0px 10px 10px 10px;
+    border-radius: 10px 10px 10px 10px;
     max-width: max-content;
 }
 
@@ -337,10 +337,9 @@ body {
     width: 50%;
 }
 
-
 .sender {
     flex-direction: row-reverse;
-    border-radius: 10px 0px 10px 10px;
+
 }
 
 .sender .messageContent {
