@@ -31,6 +31,7 @@ function App() {
         </Route>
       </Routes>
     </HashRouter >
+    </HashRouter >
   );
 }
 
