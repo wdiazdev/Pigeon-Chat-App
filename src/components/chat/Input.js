@@ -10,7 +10,7 @@ import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../context/AuthContext';
 import { ChatContext } from '../../context/ChatContext';
 import attach from './Chat Assets/attach.png';
-import attachImg from './Chat Assets/attachImg.png';
+import attachimg from './Chat Assets/attachimg.png';
 import { v4 as uuid } from 'uuid';
 import { storage, db } from '../../Firebase';
 import { uploadBytesResumable, ref, getDownloadURL } from 'firebase/storage';
@@ -94,7 +94,7 @@ const Input = () => {
                 />
                 <label htmlFor='file'>
                     <img
-                        src={attachImg}
+                        src={attachimg}
                         alt=''
                         style={{ cursor: 'pointer' }}
                     />
