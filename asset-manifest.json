@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/static/css/main.4f3b2ed2.css",
-    "main.js": "/static/js/main.26a022a5.js",
-    "static/media/registerbg.jpg": "/static/media/registerbg.d86004b039eb3f1350d2.jpg",
-    "index.html": "/index.html",
-    "main.4f3b2ed2.css.map": "/static/css/main.4f3b2ed2.css.map",
-    "main.26a022a5.js.map": "/static/js/main.26a022a5.js.map"
+    "main.css": "/Pigeon-Chat-App/static/css/main.1479747c.css",
+    "main.js": "/Pigeon-Chat-App/static/js/main.2ba74208.js",
+    "static/media/registerbg.jpg": "/Pigeon-Chat-App/static/media/registerbg.d86004b039eb3f1350d2.jpg",
+    "index.html": "/Pigeon-Chat-App/index.html",
+    "main.1479747c.css.map": "/Pigeon-Chat-App/static/css/main.1479747c.css.map",
+    "main.2ba74208.js.map": "/Pigeon-Chat-App/static/js/main.2ba74208.js.map"
   },
   "entrypoints": [
-    "static/css/main.4f3b2ed2.css",
-    "static/js/main.26a022a5.js"
+    "static/css/main.1479747c.css",
+    "static/js/main.2ba74208.js"
   ]
 }
