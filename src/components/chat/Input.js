@@ -9,7 +9,7 @@ import {
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../context/AuthContext';
 import { ChatContext } from '../../context/ChatContext';
-import attachimg from './Chat Assets/attachimg.png';
+import attachimg from '../../assets/attachimg.png';
 import { v4 as uuid } from 'uuid';
 import { storage, db } from '../../Firebase';
 import { uploadBytesResumable, ref, getDownloadURL } from 'firebase/storage';
