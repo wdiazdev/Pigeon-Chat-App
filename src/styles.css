@@ -14,7 +14,7 @@ body {
 /* REGISTER PAGE  */
 
 .register--main {
-    background-image: url('../src/assets/registerbg.jpg');
+    background-image: url(./assets/homebg.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
@@ -131,7 +131,9 @@ body {
 /* HOME PAGE/LOGIN  */
 
 .home {
-    background-color: #72bcd4;
+    background-image: url(./assets/homebg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
     height: 100vh;
     display: flex;
     align-items: center;
@@ -170,7 +172,7 @@ body {
 .navbar--logo {
     font-family: 'Lobster', sans-serif;
     letter-spacing: 2px;
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 .navbar--user {
@@ -179,10 +181,15 @@ body {
     gap: 10px;
 }
 
+.navbar--user>span {
+    letter-spacing: 1px;
+}
+
 .navbar--user>img {
-    height: 34px;
-    width: 34px;
+    height: 44px;
+    width: 44px;
     border-radius: 50%;
+    border: 2px solid #ffffff;
     object-fit: cover;
 }
 
@@ -209,13 +216,13 @@ body {
     padding: 10px;
     width: 100%;
     border: none;
+    border-bottom: 1px solid #808080;
     color: #ffffff;
     outline: none;
 }
 
 .search--form>input::placeholder {
     color: #ffffff;
-    letter-spacing: 1px;
 }
 
 .sidebar--user--info {
@@ -234,12 +241,14 @@ body {
     margin-left: 10px;
     color: #72bcd4;
     font-weight: 700;
+    letter-spacing: 2px;
 }
 
 .sidebar--user--info>img {
     height: 44px;
     width: 44px;
     border-radius: 50%;
+    border: 2px solid #347085;
     object-fit: cover;
 }
 
@@ -247,9 +256,7 @@ body {
     color: #ffffff;
     margin-left: 10px;
     color: #808080;
-
 }
-
 
 /* OPEN CHAT  */
 
@@ -282,13 +289,16 @@ body {
 .chat--topbar>span {
     padding: 10px;
     color: #ffffff;
+    font-weight: 700;
     letter-spacing: 2px;
 }
 
 /* MAIN MESSAGES AREA  */
 
 .messages--area {
-    background-color: #b6e1f0;
+    background-image: url(./assets/chatbg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
     padding: 10PX;
     height: calc(100% - 114px);
     overflow-y: scroll;
@@ -311,12 +321,8 @@ body {
     height: 44px;
     width: 44px;
     border-radius: 50%;
+    border: 2px solid #347085;
     object-fit: cover;
-}
-
-.messageInfo>span {
-    color: #808080;
-    font-size: 12px;
 }
 
 .messageContent {
@@ -327,7 +333,7 @@ body {
 }
 
 .messageContent>p {
-    background-color: #ffffff;
+    background-color: #72bcd4;
     padding: 10px 20px;
     border-radius: 10px 10px 10px 10px;
     max-width: max-content;
@@ -339,7 +345,6 @@ body {
 
 .sender {
     flex-direction: row-reverse;
-
 }
 
 .sender .messageContent {

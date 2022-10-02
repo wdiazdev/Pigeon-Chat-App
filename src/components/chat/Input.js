@@ -9,7 +9,6 @@ import {
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../context/AuthContext';
 import { ChatContext } from '../../context/ChatContext';
-import attach from './Chat Assets/attach.png';
 import attachimg from './Chat Assets/attachimg.png';
 import { v4 as uuid } from 'uuid';
 import { storage, db } from '../../Firebase';
@@ -85,7 +84,6 @@ const Input = () => {
                 value={text}
             />
             <div className="type--area--buttons">
-                <img src={attach} alt='Attach file' style={{ cursor: 'pointer' }} />
                 <input
                     type='file'
                     id='file'

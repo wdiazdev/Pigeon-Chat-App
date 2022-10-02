@@ -32,11 +32,11 @@ const Login = () => {
                     <input type="email" placeholder='Email' />
                     <input type="password" placeholder='Password' />
                     <button className='button'>Login</button>
-                    {err && <span className='register--error'>Something went wrong</span>}
+                    {err && <span className='register--error'>Something went wrong.</span>}
                 </form>
 
                 <p className='member--login'>
-                    New member? <Link className='link' to='/register'>Register</Link>
+                    Not a member? <Link className='link' to='/register'>Register</Link>
                 </p>
             </div>
         </div>

@@ -23,11 +23,10 @@ const Messages = ({ messages }) => {
                         ? currentUser.photoURL
                         : data.user.photoURL}
                     alt='User' />
-                <span>Just now</span>
             </div>
             <div className="messageContent">
                 <p>{messages.text}</p>
-                {messages.img && <img src={messages.img} alt='Chat' />}
+                {messages.img && <img src={messages.img} alt='' />}
             </div>
         </div>
     )
