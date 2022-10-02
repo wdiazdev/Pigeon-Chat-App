@@ -197,6 +197,7 @@ body {
     padding: 5px;
     font-size: 18px;
     border: none;
+    border-radius: 5px 5px 5px 5px;
     background-color: #72bcd4;
     cursor: pointer;
 }
