@@ -335,8 +335,9 @@ body {
 .messageContent>p {
     background-color: #72bcd4;
     padding: 10px 20px;
-    border-radius: 10px 10px 10px 10px;
+    border-radius: 0px 10px 10px 10px;
     max-width: max-content;
+    color: #0e1b5a;
 }
 
 .messageContent>img {
@@ -350,6 +351,14 @@ body {
 .sender .messageContent {
     align-items: flex-end;
 }
+
+.sender .messageContent>p {
+    background-color: #ffffff;
+    border-radius: 10px 0px 10px 10px;
+    color: #0e1b5a;
+}
+
+
 
 /* INPUT  */
 
