@@ -321,7 +321,7 @@ body {
     height: 44px;
     width: 44px;
     border-radius: 50%;
-    border: 2px solid #347085;
+    border: 2px solid #ffffff;
     object-fit: cover;
 }
 
@@ -358,8 +358,6 @@ body {
     color: #0e1b5a;
 }
 
-
-
 /* INPUT  */
 
 .input {
@@ -393,6 +391,7 @@ body {
     padding: 5px 10px;
     font-size: 18px;
     border: none;
+    border-radius: 0px 10px 10px 10px;
     background-color: #72bcd4;
     cursor: pointer;
     margin-left: 10px;
